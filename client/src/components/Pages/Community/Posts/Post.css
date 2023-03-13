@@ -1,0 +1,44 @@
+.comments-wrapper
+{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;   
+  flex-direction: column;
+}
+.comment
+{
+ display: flex;
+ align-items: center;
+ width: 100%;
+ margin-top: 7px;
+}
+.comment-timing
+{
+  display: flex;
+  justify-content: space-between;  
+}
+
+.comment-details
+{
+  margin-left: 10px;
+  padding: 8px;
+  flex-grow: 1;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 25px, 
+             rgba(0, 0, 0, 0.05) 0px 20px 48px,
+             rgba(0, 0, 0, 0.1) 0px 1px 4px;
+    background-color: rgb(248, 249, 249);
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;  
+}
+.post-media
+{
+ display: grid;
+ place-items: center; 
+}
+.post-media img{
+  object-fit: cover;
+}
+.post-media video{
+  width: 80%;
+}

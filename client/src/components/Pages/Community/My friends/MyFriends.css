@@ -1,0 +1,71 @@
+.req-container, .friend-container
+{
+  width: 100%;  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.friend-req-card, .friend-card
+{
+  border: 1px solid #11101044;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.req-card-info, .friend-info
+{
+  display: flex;
+  justify-content: center;  
+  flex-direction: column;
+  margin-left: 8px;
+  gap: 7px;
+}
+
+.btns-wrapper
+{
+  display: flex;  
+}
+
+.btns-wrapper button
+{
+    padding: 6px 9px;
+    border: 1px solid blue;
+    border-radius: 3px;
+    background-color: #e7f8fe;
+    transform: .2s;
+    cursor: pointer;  
+    margin-right: 5px;
+}
+
+.friends-btns-wrapper button
+{
+    padding: 6px 9px;
+    border-radius: 3px;
+    background-color: red;
+    border: none;
+    color: white;
+    transform: .2s;
+    cursor: pointer;  
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  
+    .req-container, .friend-container
+    {
+      justify-content: center;  
+    }
+    .req-container h1, .friend-container h1{
+       font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+  .req-container h1, .friend-container h1{
+    font-size: 1.5rem;
+ }
+}

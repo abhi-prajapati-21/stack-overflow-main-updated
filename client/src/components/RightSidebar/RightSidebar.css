@@ -1,0 +1,74 @@
+.right-sidebar
+{
+  float: right;
+  margin: 50px 0px 15px 24px;
+  width: 270px;
+  font-size: 11px;
+
+}
+.widget
+{
+ margin-top: 10px;
+ box-shadow: 3px 3px 10px rgb(0 0 0 / 5%),
+ -3px -3px 10px rbg(0 0 0 / 5%);   
+}
+.widget h4
+{
+    background-color: #fbf3d5;
+    margin: 0%;
+    padding: 10px;
+    font-size: 13px;
+    border: 1px solid #f1e5bc;
+}
+.right-sidebar-div-1
+{
+    background-color: #fbf7e2;
+    padding: 7px;
+    border: 1px solid #f1e5bc;
+}
+.right-sidebar-div-1 .right-sidebar-div-2
+{
+ display: flex;
+ align-items: flex-start;
+ justify-content: flex-start;   
+}
+.right-sidebar-div-2 p 
+{
+ margin-left: 10px;
+ margin-top: 0%;
+}
+.widget-tags
+{
+    margin-top: 20px;
+    box-shadow: 3px 3px 10px rgb(0 0 0 / 5%),
+    -3px -3px 10px rbg(0 0 0 / 5%);  
+}
+.widget-tags-div
+{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #e3e6e8; 
+  padding: 5px; 
+}
+.widget-tags-div p
+{
+ padding: 9px;
+ background-color: #e1ecf4;
+ color: #39739d;
+ border-radius: 2px;   
+}
+.widget-tags h3
+{
+  background-color: #f8f9f9;
+  margin: 0%;
+  padding: 10px;
+  border: 1px solid #f1e5bc;
+}
+@media screen and (max-width: 1020px) {
+  .right-sidebar {
+    display: none;
+  }
+}
+

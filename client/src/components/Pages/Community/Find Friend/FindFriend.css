@@ -1,0 +1,83 @@
+.find-friend-main 
+{
+ background-color: #fbf3d5;
+ width: 300px;
+ max-height: 90%;
+ position: fixed;
+ right: 0.3%;
+ top: 9%;
+ overflow-y: scroll;
+ overflow-x: hidden;
+ margin-top: 10px;
+ box-shadow: 3px 3px 10px #0000000d, 
+            -3px -3px 10px #0000000d;
+}
+.find-friend-header
+{
+ padding: 14px 7px;
+ border: solid 1px #f1e5bc;
+}
+
+.find-friend-main form img{
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    opacity: 0.7;
+}
+
+.find-friend-main form input{
+padding: 8px 10px 8px 26px;
+font-size: 13px;
+border: solid 1px #f1e5bc;
+border-radius: 3px;
+width: 87%;
+outline: none;
+}
+
+.finded-friend-card
+{
+border: solid 1px #f1e5bc;
+padding: 10px;
+display: flex;
+align-items: center;
+}
+
+.finded-friend-card button{
+    padding: 7px 13px;
+    border: solid 1px blue;
+    border-radius: 3px;
+    background-color: #e7f8fe;
+    cursor: pointer;
+    margin-left: auto;
+}
+.find-friend-wrapper
+{ width: 100%;
+    position: relative;
+    top: 9%;
+  display: flex;
+justify-content: center;  
+}
+
+
+@media screen and (max-width: 920px) {
+
+.find-friend-main 
+{
+ background-color: #fbf3d5;
+ width: 80%;
+ max-height: 90%;
+ position: relative;
+ top: 9%;
+ overflow-y: scroll;
+ overflow-x: hidden;
+ box-shadow: 3px 3px 10px #0000000d, 
+            -3px -3px 10px #0000000d;
+}
+    
+}
+@media screen and (max-width: 600px) {
+
+    .find-friend-main{
+        width: 100%;
+    } 
+}

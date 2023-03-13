@@ -1,0 +1,56 @@
+.create-post-form
+{
+  margin-top: 55px;  
+  
+  padding: 15px 10px;
+}
+
+.create-post-form form
+{
+    background-color: #fbf3d5;
+    padding: 20px;
+    border-radius: 3px;
+    box-shadow: 0 10px 25px #0000000d, 0 20px 48px #0000000d, 0 1px 4px #0000001a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.create-post-form textarea
+{
+ padding: 10px;
+border: solid 1px #0000003e;
+font-family: Roboto,sans-serif;
+outline: none;
+width: calc(100% - 20px);
+resize: vertical;
+}
+
+.mx
+{
+  margin: 10px 0px;  
+}
+.mb
+{
+  margin-bottom: 10px;  
+}
+
+.btn
+{
+  border: none;
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 4px;
+  padding: 7px 20px;  
+  width: fit-content;
+}
+.strok-btn
+{
+    padding: 7px 20px;
+    border: 1px solid blue;
+    border-radius: 3px;
+    background-color: #e7f8fe;
+    transform: .2s;
+    width: fit-content;
+    cursor: pointer;  
+}
