@@ -42,3 +42,7 @@
 .post-media video{
   width: 80%;
 }
+.d-none
+{
+ display: none; 
+}

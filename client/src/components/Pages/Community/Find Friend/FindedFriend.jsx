@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addFriendAction } from '../../../../Action/addFriend'
 
+import './FindFriend.css'
 import Avatar from '../../../Avatar/Avatar'
 
 const FindedFriend = ({ userProps }) => {
@@ -42,7 +43,7 @@ const FindedFriend = ({ userProps }) => {
         {
           isInclude ? <button className= {` ${currentUser?.result?._id === user?._id && 'd-none'}`} >pending...</button> :
           isFriend ? <button className= {` ${currentUser?.result?._id === user?._id && 'd-none'}`} >Friend</button> :
-          <button onClick={addFriendHandler} className= {` ${currentUser?.result?._id === user?._id && 'd-none'}`} >Add Friend</button>
+          <button onClick={addFriendHandler} className= {` ${user?._id === currentUser?.result?._id && 'd-none'}`} >Add Friend</button>
         }     
     </div>
   )

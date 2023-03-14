@@ -93,7 +93,8 @@ const Post = ({ postProp }) => {
                     py='13px' 
                     borderRadius='50%' 
                     color='white'
-                    >{ post?.userPosted.userName?.charAt(0).toUpperCase()}</Avatar>
+                    >
+                    { post?.userPosted.userName?.charAt(0).toUpperCase()}</Avatar>
                     <div className="info-box">
                         <strong>{ post?.userPosted?.userName}</strong>
                         <p>{moment(post?.postedOn).fromNow()}</p>
@@ -114,12 +115,12 @@ const Post = ({ postProp }) => {
         <div className="post-media">
          { post?.mediaType === 'image' &&
           <>
-          <img src={ `http://localhost:5000/${post.postMedia}` } alt="" className='post-img' />
+          <img src={ `https://staxh-overflow-updated.onrender.com/${post.postMedia}` } alt="" className='post-img' />
           </>
          }
         { 
           post?.mediaType === 'video' &&
-          (<video src={ `http://localhost:5000/${post.postMedia}` } className='post-video ' controls={true}></video>)
+          (<video src={ `https://staxh-overflow-updated.onrender.com/${post.postMedia}` } className='post-video ' controls={true}></video>)
         } 
         </div>
         <div className="post-footer">
@@ -155,8 +156,8 @@ const Post = ({ postProp }) => {
                     py='10px' 
                     borderRadius='50%' 
                     color='white'
-                    >{ currentUser?.result?.name.charAt(0).toUpperCase() }</Avatar>
-
+                    >
+                      {currentUser?.result?.name ? currentUser?.result?.name.charAt(0).toUpperCase() : '?' }</Avatar>
                     <input 
                     type="text" 
                     onChange={e => setComment(e.target.value)} 

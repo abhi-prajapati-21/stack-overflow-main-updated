@@ -24,7 +24,7 @@ const QuestionDetails = () => {
    const dispatch = useDispatch()
    const location = useLocation()
 
-   const url = 'http://localhost:3000'
+   const url = 'https://stack-overflow-abhi.netlify.app'
 
    const handlePostAns = (e, answerLength) => {
      e.preventDefault();
