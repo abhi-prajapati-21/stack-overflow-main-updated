@@ -33,6 +33,7 @@
     "dev": "vite",
     "start": "vite",
     "build": "vite build",
+    "build:netlify": "vite build && cp public/_redirects build/",
     "preview": "vite preview",
     "test": "vitest"
   }

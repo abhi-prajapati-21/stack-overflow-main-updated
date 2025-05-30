@@ -15,8 +15,15 @@ export default defineConfig({
   build: {
     outDir: "build",
     sourcemap: true,
+    assetsDir: "assets",
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   publicDir: "public",
+  base: "/",
   esbuild: {
     loader: "jsx",
     include: /src\/.*\.[jt]sx?$/,
