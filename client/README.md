@@ -1,14 +1,14 @@
-# Getting Started with Create React App
+# StackOverflow Clone - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is built with React and Vite for fast development and optimized builds.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev` or `npm start`
 
-Runs the app in the development mode.\
+Runs the app in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
@@ -16,13 +16,35 @@ You may also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner using Vitest.
 
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+### `npm run preview`
+
+Serves the production build locally for testing.
+
+## Environment Variables
+
+Create a `.env` file in the client directory with the following variables:
+
+```
+VITE_API_BASE_URL=https://your-api-url.com
+```
+
+Note: Vite environment variables must be prefixed with `VITE_` to be accessible in the client code.
+
+## Migration from Create React App
+
+This project has been migrated from Create React App to Vite for:
+
+- Faster development server startup
+- Hot Module Replacement (HMR)
+- Optimized build performance
+- Modern tooling with ES modules
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
