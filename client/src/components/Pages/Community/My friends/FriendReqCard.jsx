@@ -1,44 +1,54 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { acceptRequestAction, removeRequestAction } from '../../../../Action/addFriend';
+import React from "react";
+import {
+  useAcceptRequest,
+  useRemoveRequest,
+} from "../../../../hooks/useFriends";
 
-import Avatar from '../../../Avatar/Avatar'
+import Avatar from "../../../Avatar/Avatar";
 
 const FriendReqCard = ({ allRequests }) => {
-
   const { requests, currentUser } = allRequests;
 
-  const dispatch = useDispatch();
+  const acceptRequestMutation = useAcceptRequest();
+  const removeRequestMutation = useRemoveRequest();
 
   const acceptRequestHandler = () => {
-    dispatch(acceptRequestAction(
-      {_id :currentUser?.result?._id, userName: currentUser?.result?.name}, requests))
-  }
+    acceptRequestMutation.mutate({
+      obj: {
+        _id: currentUser?.result?._id,
+        userName: currentUser?.result?.name,
+      },
+      userDetails: requests,
+    });
+  };
 
   const rejectRequestHandler = () => {
-    dispatch(removeRequestAction(
-      currentUser?.result?._id, {objId: requests._id}))
-  }
+    removeRequestMutation.mutate({
+      _id: currentUser?.result?._id,
+      userId: { objId: requests._id },
+    });
+  };
 
   return (
-    <div className='friend-req-card'>
-      <Avatar 
-      backgroundColor='purple' 
-      px='17px' 
-      py='13px' 
-      borderRadius='50%' 
-      color='white'
-      >{ requests?.requestedName?.charAt(0).toUpperCase() }</Avatar>
+    <div className="friend-req-card">
+      <Avatar
+        backgroundColor="purple"
+        px="17px"
+        py="13px"
+        borderRadius="50%"
+        color="white"
+      >
+        {requests?.requestedName?.charAt(0).toUpperCase()}
+      </Avatar>
       <div className="req-card-info">
-        <span>{ requests?.requestedName }</span>
+        <span>{requests?.requestedName}</span>
         <div className="btns-wrapper">
-          <button onClick={acceptRequestHandler} >Accept</button>
-          <button onClick={rejectRequestHandler} >Reject</button>
+          <button onClick={acceptRequestHandler}>Accept</button>
+          <button onClick={rejectRequestHandler}>Reject</button>
         </div>
-        
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FriendReqCard
+export default FriendReqCard;
