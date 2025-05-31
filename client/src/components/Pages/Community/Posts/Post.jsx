@@ -27,7 +27,7 @@ const Post = ({ postProp }) => {
   const postCommentMutation = usePostComment();
   const postLikeMutation = usePostLike();
   const addFriendMutation = useAddFriend();
-  const userPosted = users.filter(
+  const userPosted = users?.filter(
     (user) => user?._id === post?.userPosted?.userId
   )[0];
 
@@ -121,7 +121,7 @@ const Post = ({ postProp }) => {
               currentUser?.result?._id === post?.userPosted?.userId && "d-none"
             }`}
           >
-            pending...
+            Request sent
           </button>
         ) : isFriend ? (
           <button

@@ -1,6 +1,5 @@
 import React from "react";
 import { useAddFriend } from "../../../../hooks/useFriends";
-
 import "./FindFriend.css";
 import Avatar from "../../../Avatar/Avatar";
 
@@ -27,8 +26,7 @@ const FindedFriend = ({ userProps }) => {
     });
   };
 
-  let isInclude = [];
-  isInclude = userPosted?.friendRequests?.filter(
+  const isInclude = userPosted?.friendRequests?.filter(
     (friend) => friend?.requestedId === currentUser?.result?._id
   )[0];
   const isFriend = userPosted?.friends?.filter(
@@ -51,7 +49,7 @@ const FindedFriend = ({ userProps }) => {
         <button
           className={` ${currentUser?.result?._id === user?._id && "d-none"}`}
         >
-          pending...
+          Request sent
         </button>
       ) : isFriend ? (
         <button

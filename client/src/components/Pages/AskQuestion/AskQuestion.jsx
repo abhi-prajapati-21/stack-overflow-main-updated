@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AskQuestion.css";
-import { useAskQuestion } from "../../../hooks/useQuestions";
 import { useCurrentUser } from "../../../hooks/useAuth";
+import { useAskQuestion } from "../../../hooks/useQuestions";
 
 const AskQuestion = () => {
   const [questionTitle, setQuestionTitle] = useState("");
@@ -82,12 +82,12 @@ const AskQuestion = () => {
                 placeholder="e.g (typescript wordpress)"
               />
             </label>
+            <input
+              type="submit"
+              value="Review your question"
+              className="review-btn"
+            />
           </div>
-          <input
-            type="submit"
-            value="Review your question"
-            className="review-btn"
-          />
         </form>
       </div>
     </div>
