@@ -1,41 +1,34 @@
-import React, { useEffect, Suspense } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { Suspense } from "react";
 
-import LeftSidebar from '../../LeftSidebar/LeftSidebar'
+import LeftSidebar from "../../LeftSidebar/LeftSidebar";
 // import AllPosts from './Posts/AllPosts'
-import FindFriend from './Find Friend/FindFriend'
-import { fetchAllPosts } from '../../../Action/Post'
-import { setCurrentUser } from '../../../Action/currentUser'
-import { fetchAllUsers } from '../../../Action/users'
+import FindFriend from "./Find Friend/FindFriend";
+import { usePosts } from "../../../hooks/usePosts";
+import { useCurrentUser } from "../../../hooks/useAuth";
+import { useUsers } from "../../../hooks/useUsers";
 
-const AllPosts = React.lazy(() => import('./Posts/AllPosts'))
+const AllPosts = React.lazy(() => import("./Posts/AllPosts"));
 
 const Community = () => {
-
-  const dispatch = useDispatch()
-  const Posts = useSelector(state => state.fetchPostsReducer)
-  const currentUser = useSelector(state => state.currentUserReducer)
-  const users = useSelector(state => state.usersReducer)
-
-  useEffect(() => {
-   dispatch(fetchAllPosts())
-   dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
-   dispatch(fetchAllUsers())
-  }, [])
+  const { data: Posts } = usePosts();
+  const { data: currentUser } = useCurrentUser();
+  const { data: users } = useUsers();
 
   return (
-    <div className='home-container-1'>
+    <div className="home-container-1">
       <LeftSidebar />
       <div className="home-container-2">
         <Suspense fallback={<div>Loading</div>}>
-         <AllPosts postsProps={ {Posts: Posts, currentUser: currentUser, users} } />
+          <AllPosts
+            postsProps={{ Posts: Posts, currentUser: currentUser, users }}
+          />
         </Suspense>
         <div className="find-friend-component">
-        <FindFriend />
+          <FindFriend />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Community
+export default Community;

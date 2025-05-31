@@ -1,28 +1,20 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setCurrentUser } from '../../../../Action/currentUser'
+import React from "react";
+import { useCurrentUser } from "../../../../hooks/useAuth";
 
-import LeftSidebar from '../../../LeftSidebar/LeftSidebar'
-import PostForm from './PostForm'
+import LeftSidebar from "../../../LeftSidebar/LeftSidebar";
+import PostForm from "./PostForm";
 
 const CreatePost = () => {
-
-  const dispatch = useDispatch();
-
-  const currentUser = useSelector(state => state.currentUserReducer)
-
-  useEffect(() => {
-   dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
-  }, [])
+  const { data: currentUser } = useCurrentUser();
 
   return (
-    <div className='home-container-1'>
+    <div className="home-container-1">
       <LeftSidebar />
       <div className="home-container-2">
-        <PostForm currentUser={currentUser}/>
+        <PostForm currentUser={currentUser} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CreatePost
+export default CreatePost;
