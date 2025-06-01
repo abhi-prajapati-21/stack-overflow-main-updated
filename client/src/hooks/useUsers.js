@@ -1,10 +1,10 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import * as api from '../API';
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import * as api from "../API";
 
 // Fetch all users
 export const useUsers = () => {
   return useQuery({
-    queryKey: ['users'],
+    queryKey: ["users"],
     queryFn: async () => {
       const response = await api.fetchAllUsers();
       return response.data;
@@ -19,8 +19,24 @@ export const useUpdateProfile = () => {
   return useMutation({
     mutationFn: ({ id, updateData }) => api.updateProfile(id, updateData),
     onSuccess: (response) => {
-      queryClient.invalidateQueries({ queryKey: ['users'] });
-      queryClient.setQueryData(['currentUser'], response.data);
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+      queryClient.setQueryData(["currentUser"], response.data);
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+};
+
+// Upload profile picture mutation
+export const useUploadProfilePicture = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ id, formData }) => api.uploadProfilePicture(id, formData),
+    onSuccess: (response) => {
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+      queryClient.setQueryData(["currentUser"], response.data);
     },
     onError: (error) => {
       console.log(error);

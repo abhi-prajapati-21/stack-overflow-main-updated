@@ -35,6 +35,8 @@ const FriendReqCard = ({ allRequests }) => {
         backgroundColor="purple"
         px="17px"
         py="13px"
+        imgHeight="30px"
+        imgWidth="30px"
         borderRadius="50%"
         color="white"
       >

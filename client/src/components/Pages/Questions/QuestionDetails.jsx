@@ -146,7 +146,14 @@ const QuestionDetails = () => {
                             className="user-link"
                             style={{ margin: "5px" }}
                           >
-                            <Avatar backgroundColor="orange" px="8px" py="5px">
+                            <Avatar
+                              backgroundColor="orange"
+                              px="8px"
+                              py="5px"
+                              imgHeight="30px"
+                              imgWidth="30px"
+                              profilePicture={question.profilePicture}
+                            >
                               {question.userPosted.charAt(0).toUpperCase()}
                             </Avatar>
                             <div>

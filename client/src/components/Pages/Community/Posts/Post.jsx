@@ -62,6 +62,7 @@ const Post = ({ postProp }) => {
       comment: {
         commentBody: comment,
         userCommented: currentUser?.result?.name,
+        userId: currentUser?.result?._id,
       },
     });
     setComment("");
@@ -105,8 +106,11 @@ const Post = ({ postProp }) => {
             backgroundColor="dodgerblue"
             px="17px"
             py="13px"
+            imgHeight="45px"
+            imgWidth="45px"
             borderRadius="50%"
             color="white"
+            profilePicture={post?.userPosted?.profilePicture}
           >
             {post?.userPosted.userName?.charAt(0).toUpperCase()}
           </Avatar>
@@ -151,7 +155,7 @@ const Post = ({ postProp }) => {
         {post?.mediaType === "image" && (
           <>
             <img
-              src={`https://staxh-overflow-updated.onrender.com/${post.postMedia}`}
+              src={`http://localhost:5000/${post.postMedia}`}
               alt=""
               className="post-img"
             />
@@ -159,7 +163,7 @@ const Post = ({ postProp }) => {
         )}
         {post?.mediaType === "video" && (
           <video
-            src={`https://staxh-overflow-updated.onrender.com/${post.postMedia}`}
+            src={`http://localhost:5000/${post.postMedia}`}
             className="post-video "
             controls={true}
           ></video>
@@ -197,8 +201,11 @@ const Post = ({ postProp }) => {
               backgroundColor="dodgerblue"
               px="16px"
               py="10px"
+              imgHeight="30px"
+              imgWidth="30px"
               borderRadius="50%"
               color="white"
+              profilePicture={currentUser?.result?.profilePicture}
             >
               {currentUser?.result?.name
                 ? currentUser?.result?.name.charAt(0).toUpperCase()

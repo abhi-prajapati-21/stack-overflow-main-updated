@@ -38,6 +38,12 @@ export const deleteAnswer = (id, answerId, noOfAnswer) =>
 export const fetchAllUsers = () => API.get("/user/getAllUsers");
 export const updateProfile = (id, updateData) =>
   API.patch(`/user/update/${id}`, updateData);
+export const uploadProfilePicture = (id, formData) =>
+  API.patch(`/user/upload-profile-picture/${id}`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 
 export const uploadMedia = (formData) => API.post("/Post/media", formData);
 export const postComment = (_id, comment) =>

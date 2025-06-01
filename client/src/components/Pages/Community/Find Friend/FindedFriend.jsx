@@ -40,7 +40,11 @@ const FindedFriend = ({ userProps }) => {
         px="16px"
         py="10px"
         borderRadius="50%"
+        imgHeight="30px"
+        imgWidth="30px"
         color="white"
+        profilePicture={user?.profilePicture}
+        alt={`${user?.name}'s profile`}
       >
         {user?.name?.charAt(0).toUpperCase()}
       </Avatar>

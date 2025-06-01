@@ -35,6 +35,11 @@ const UserProfile = () => {
                 fontSize="50px"
                 px="40px"
                 py="30px"
+                borderRadius="50%"
+                imgHeight="200px"
+                imgWidth="200px"
+                profilePicture={currentProfile?.profilePicture}
+                alt={`${currentProfile?.name}'s profile`}
               >
                 {currentProfile?.name.charAt(0).toUpperCase()}
               </Avatar>

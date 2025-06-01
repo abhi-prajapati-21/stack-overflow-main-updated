@@ -64,20 +64,24 @@ const Navbar = () => {
             </Link>
           ) : (
             <>
-              <Avatar
-                backgroundColor="#009dff"
-                px="12px"
-                py="7px"
-                borderRadius="50%"
-                cursor="pointer"
+              <Link
+                to={`/Users/${user?.result?._id}`}
+                style={{ textDecoration: "none", color: "white" }}
               >
-                <Link
-                  to={`/Users/${user?.result?._id}`}
-                  style={{ textDecoration: "none", color: "white" }}
+                <Avatar
+                  backgroundColor="#009dff"
+                  px="12px"
+                  py="7px"
+                  borderRadius="50%"
+                  imgHeight="30px"
+                  imgWidth="30px"
+                  cursor="pointer"
+                  profilePicture={user?.result?.profilePicture}
+                  alt={`${user?.result?.name}'s profile`}
                 >
                   {user?.result?.name?.charAt(0).toUpperCase()}
-                </Link>
-              </Avatar>
+                </Avatar>
+              </Link>
               <button className="nav-item nav-link" onClick={handleLogOut}>
                 Log out
               </button>
