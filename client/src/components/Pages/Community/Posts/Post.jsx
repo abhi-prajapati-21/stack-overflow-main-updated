@@ -141,8 +141,9 @@ const Post = ({ postProp }) => {
               currentUser?.result?._id === post?.userPosted?.userId && "d-none"
             }`}
             onClick={addFriendHandler}
+            disabled={addFriendMutation.isPending}
           >
-            Add Friend
+            {addFriendMutation.isPending ? "Sending..." : "Add Friend"}
           </button>
         )}
       </div>
@@ -176,23 +177,43 @@ const Post = ({ postProp }) => {
           <span>{post?.comments?.length} comments</span>
         </div>
         <div className="post-like-comment">
-          <label htmlFor="like" onClick={likeHandler}>
+          <label
+            htmlFor="like"
+            onClick={postLikeMutation.isPending ? undefined : likeHandler}
+            style={{
+              opacity: postLikeMutation.isPending ? 0.6 : 1,
+              cursor: postLikeMutation.isPending ? "not-allowed" : "pointer",
+            }}
+          >
             <img
               src={isLiked ? redLikeIcon : likeIcon}
               alt="like"
               width="17"
               id="like"
             />
-            <span>Like</span>
+            <span>{postLikeMutation.isPending ? "Liking..." : "Like"}</span>
           </label>
           <label htmlFor="comment" onClick={() => setActive(!isActive)}>
             <img src={commentIcon} alt="comment" width="22" id="comment" />
             <span>Comment</span>
           </label>
           {currentUser?.result?._id === post?.userPosted?.userId && (
-            <label htmlFor="delete" onClick={deletePostHandler}>
+            <label
+              htmlFor="delete"
+              onClick={
+                deletePostMutation.isPending ? undefined : deletePostHandler
+              }
+              style={{
+                opacity: deletePostMutation.isPending ? 0.6 : 1,
+                cursor: deletePostMutation.isPending
+                  ? "not-allowed"
+                  : "pointer",
+              }}
+            >
               <img src={deletePost} alt="delete" width="21" id="comment" />
-              <span>delete</span>
+              <span>
+                {deletePostMutation.isPending ? "deleting..." : "delete"}
+              </span>
             </label>
           )}
         </div>
@@ -218,8 +239,12 @@ const Post = ({ postProp }) => {
               value={comment}
               placeholder="Type something"
             />
-            <button className="comment-btn" onClick={commentHandler}>
-              comment
+            <button
+              className="comment-btn"
+              onClick={commentHandler}
+              disabled={postCommentMutation.isPending}
+            >
+              {postCommentMutation.isPending ? "Posting..." : "comment"}
             </button>
           </div>
           <div className="comments-wrapper">

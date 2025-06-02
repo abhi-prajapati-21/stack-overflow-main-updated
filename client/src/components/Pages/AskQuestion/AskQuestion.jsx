@@ -84,8 +84,13 @@ const AskQuestion = () => {
             </label>
             <input
               type="submit"
-              value="Review your question"
+              value={
+                askQuestionMutation.isPending
+                  ? "Posting Question..."
+                  : "Review your question"
+              }
               className="review-btn"
+              disabled={askQuestionMutation.isPending}
             />
           </div>
         </form>

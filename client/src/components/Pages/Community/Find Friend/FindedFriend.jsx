@@ -65,8 +65,9 @@ const FindedFriend = ({ userProps }) => {
         <button
           onClick={addFriendHandler}
           className={` ${user?._id === currentUser?.result?._id && "d-none"}`}
+          disabled={addFriendMutation.isPending}
         >
-          Add Friend
+          {addFriendMutation.isPending ? "Sending..." : "Add Friend"}
         </button>
       )}
     </div>

@@ -105,16 +105,36 @@ const QuestionDetails = () => {
                         src={upVote}
                         alt=""
                         width="18"
-                        onClick={handleUpVote}
+                        onClick={
+                          voteQuestionMutation.isPending
+                            ? undefined
+                            : handleUpVote
+                        }
                         className="vote-icons"
+                        style={{
+                          opacity: voteQuestionMutation.isPending ? 0.6 : 1,
+                          cursor: voteQuestionMutation.isPending
+                            ? "not-allowed"
+                            : "pointer",
+                        }}
                       />
                       <p>{question.upVote.length - question.downVote.length}</p>
                       <img
                         src={downVote}
                         alt=""
                         width="18"
-                        onClick={handleDownVote}
+                        onClick={
+                          voteQuestionMutation.isPending
+                            ? undefined
+                            : handleDownVote
+                        }
                         className="vote-icons"
+                        style={{
+                          opacity: voteQuestionMutation.isPending ? 0.6 : 1,
+                          cursor: voteQuestionMutation.isPending
+                            ? "not-allowed"
+                            : "pointer",
+                        }}
                       />
                     </div>
                     <div style={{ width: "100%" }}>
@@ -132,8 +152,14 @@ const QuestionDetails = () => {
                             Share
                           </button>
                           {User?.result?._id === question?.userId && (
-                            <button type="button" onClick={handleDelete}>
-                              Delete
+                            <button
+                              type="button"
+                              onClick={handleDelete}
+                              disabled={deleteQuestionMutation.isPending}
+                            >
+                              {deleteQuestionMutation.isPending
+                                ? "Deleting..."
+                                : "Delete"}
                             </button>
                           )}
                         </div>
@@ -191,7 +217,12 @@ const QuestionDetails = () => {
                     <input
                       type="submit"
                       className="post-ans-btn"
-                      value="Post Your Answer"
+                      value={
+                        postAnswerMutation.isPending
+                          ? "Posting Answer..."
+                          : "Post Your Answer"
+                      }
+                      disabled={postAnswerMutation.isPending}
                     />
                   </form>
                   <p>

@@ -80,9 +80,10 @@ const PostForm = ({ currentUser }) => {
         />
         <input
           type="submit"
-          value="Post"
+          value={uploadMediaMutation.isPending ? "Posting..." : "Post"}
           className="btn mx"
           style={{ fontSize: "1rem" }}
+          disabled={uploadMediaMutation.isPending}
         />
       </form>
     </div>

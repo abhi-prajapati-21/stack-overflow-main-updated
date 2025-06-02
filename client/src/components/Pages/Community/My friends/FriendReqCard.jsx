@@ -45,8 +45,18 @@ const FriendReqCard = ({ allRequests }) => {
       <div className="req-card-info">
         <span>{requests?.requestedName}</span>
         <div className="btns-wrapper">
-          <button onClick={acceptRequestHandler}>Accept</button>
-          <button onClick={rejectRequestHandler}>Reject</button>
+          <button
+            onClick={acceptRequestHandler}
+            disabled={acceptRequestMutation.isPending}
+          >
+            {acceptRequestMutation.isPending ? "Accepting..." : "Accept"}
+          </button>
+          <button
+            onClick={rejectRequestHandler}
+            disabled={removeRequestMutation.isPending}
+          >
+            {removeRequestMutation.isPending ? "Rejecting..." : "Reject"}
+          </button>
         </div>
       </div>
     </div>

@@ -34,8 +34,9 @@ const DisplayAnswers = ({ question, handleShare }) => {
                 <button
                   type="button"
                   onClick={() => handleDelete(ans._id, question.noOfAnswers)}
+                  disabled={deleteAnswerMutation.isPending}
                 >
-                  Delete
+                  {deleteAnswerMutation.isPending ? "Deleting..." : "Delete"}
                 </button>
               )}
             </div>

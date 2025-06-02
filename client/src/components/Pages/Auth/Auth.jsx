@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import logo from "../../../assets/icon.png";
 import "./Auth.css";
 import AboutAuth from "./AboutAuth";
@@ -104,8 +103,18 @@ const Auth = () => {
               </p>
             </label>
           )}
-          <button type="submit" className="auth-btn">
-            {isSignup ? "Sign Up" : "Login"}
+          <button
+            type="submit"
+            className="auth-btn"
+            disabled={loginMutation.isPending || signupMutation.isPending}
+          >
+            {isSignup
+              ? signupMutation.isPending
+                ? "Creating Account..."
+                : "Sign Up"
+              : loginMutation.isPending
+              ? "Authenticating..."
+              : "Login"}
           </button>
           {isSignup && (
             <p style={{ color: "#666767", fontSize: "13px" }}>
