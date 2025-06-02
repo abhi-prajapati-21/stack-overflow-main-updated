@@ -155,16 +155,17 @@ const Post = ({ postProp }) => {
         {post?.mediaType === "image" && (
           <>
             <img
-              src={`http://localhost:5000/${post.postMedia}`}
+              src={`https://staxh-overflow-updated.onrender.com/${post.postMedia}`}
               alt=""
               className="post-img"
+              loading="lazy"
             />
           </>
         )}
         {post?.mediaType === "video" && (
           <video
-            src={`http://localhost:5000/${post.postMedia}`}
-            className="post-video "
+            src={`https://staxh-overflow-updated.onrender.com/${post.postMedia}`}
+            className="post-video"
             controls={true}
           ></video>
         )}
