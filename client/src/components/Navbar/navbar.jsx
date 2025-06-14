@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import decode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 
 import logo from "../../assets/logo.png";
 import "../Navbar/navbar.css";
@@ -17,7 +17,7 @@ const Navbar = () => {
     const token = user?.token;
 
     if (token) {
-      const decodedToken = decode(token);
+      const decodedToken = jwtDecode(token);
       if (decodedToken.exp * 1000 < new Date().getTime()) {
         handleLogOut();
       }
