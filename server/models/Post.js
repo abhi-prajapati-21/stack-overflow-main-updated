@@ -7,7 +7,8 @@ const PostSchema = mongoose.Schema({
   },
   postedOn: { type: Date, default: Date.now },
   postBody: { type: String },
-  postMedia: { type: String },
+  postMedia: { type: String }, // Cloudinary URL
+  cloudinaryPublicId: { type: String }, // For deletion purposes
   mediaType: { type: String },
   likes: { type: [String] },
   comments: [

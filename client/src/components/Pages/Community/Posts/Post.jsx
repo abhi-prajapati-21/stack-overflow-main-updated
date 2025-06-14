@@ -156,7 +156,7 @@ const Post = ({ postProp }) => {
         {post?.mediaType === "image" && (
           <>
             <img
-              src={`https://staxh-overflow-updated.onrender.com/${post.postMedia}`}
+              src={post.postMedia}
               alt=""
               className="post-img"
               loading="lazy"
@@ -165,7 +165,7 @@ const Post = ({ postProp }) => {
         )}
         {post?.mediaType === "video" && (
           <video
-            src={`https://staxh-overflow-updated.onrender.com/${post.postMedia}`}
+            src={post.postMedia}
             className="post-video"
             controls={true}
           ></video>

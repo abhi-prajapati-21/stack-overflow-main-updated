@@ -7,7 +7,7 @@ import {
   uploadProfilePicture,
 } from "../Controllers/Users.js";
 import auth from "../Middlewares/auth.js";
-import { profilePictureUpload } from "../config/multerConfig.js";
+import { profilePictureUpload } from "../config/cloudinaryConfig.js";
 
 const router = express.Router();
 

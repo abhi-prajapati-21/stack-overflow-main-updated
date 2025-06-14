@@ -41,10 +41,7 @@ const Avatar = ({
     <div style={style}>
       {profilePicture ? (
         <img
-          src={`${
-            import.meta.env.VITE_API_BASE_URL ||
-            "https://staxh-overflow-updated.onrender.com"
-          }/${profilePicture}`}
+          src={profilePicture}
           alt={alt || "Profile"}
           style={imageStyle}
           onError={(e) => {

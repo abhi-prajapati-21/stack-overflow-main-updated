@@ -8,7 +8,7 @@ const EditProfileForm = ({ currentUser, setSwitch }) => {
   const updateProfileMutation = useUpdateProfile();
   const uploadProfilePictureMutation = useUploadProfilePicture();
 
-  const [name, setName] = useState(currentUser?.result.name);
+  const [name, setName] = useState(currentUser?.result?.name);
   const [about, setAbout] = useState(currentUser?.result?.about);
   const [tags, setTags] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);

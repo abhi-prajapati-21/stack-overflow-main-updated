@@ -6,7 +6,7 @@ import {
   PostController,
   postLike,
 } from "../Controllers/Post.js";
-import { postUpload } from "../config/multerConfig.js";
+import { postUpload } from "../config/cloudinaryConfig.js";
 
 const router = express.Router();
 

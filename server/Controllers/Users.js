@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
 import users from "../models/auth.js";
+import {
+  deleteFromCloudinary,
+  extractPublicId,
+} from "../config/cloudinaryConfig.js";
 
 export const getAllUsers = async (req, res) => {
   try {
@@ -55,10 +59,30 @@ export const uploadProfilePicture = async (req, res) => {
   }
 
   try {
-    const profilePicturePath = req.file.path;
+    // Get the current user to check if they have an existing profile picture
+    const currentUser = await users.findById(_id);
+
+    // Delete old profile picture from Cloudinary if it exists
+    if (currentUser.profilePicture) {
+      try {
+        const oldPublicId = extractPublicId(currentUser.profilePicture);
+        if (oldPublicId) {
+          await deleteFromCloudinary(oldPublicId, "image");
+        }
+      } catch (cloudinaryError) {
+        console.error(
+          "Error deleting old profile picture from Cloudinary:",
+          cloudinaryError
+        );
+        // Continue with upload even if deletion fails
+      }
+    }
+
+    // req.file.path contains the Cloudinary URL
+    const profilePictureUrl = req.file.path;
     const updatedProfile = await users.findByIdAndUpdate(
       _id,
-      { $set: { profilePicture: profilePicturePath } },
+      { $set: { profilePicture: profilePictureUrl } },
       { new: true }
     );
     res.status(200).json(updatedProfile);
