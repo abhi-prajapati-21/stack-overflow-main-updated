@@ -165,7 +165,7 @@ const QuestionDetails = () => {
                         </div>
                         <div>
                           <p style={{ margin: "0" }}>
-                            asked {moment(question.askedOn).fromNow()}
+                            asked on {moment(question.askedOn).fromNow()}
                           </p>
                           <Link
                             to={`/Users/${question.userId}`}

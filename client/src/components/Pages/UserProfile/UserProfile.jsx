@@ -36,8 +36,8 @@ const UserProfile = () => {
                 px="40px"
                 py="30px"
                 borderRadius="50%"
-                imgHeight="200px"
-                imgWidth="200px"
+                imgHeight={window.screen.width < 768 ? "100px" : "200px"}
+                imgWidth={window.screen.width < 768 ? "130px" : "200px"}
                 profilePicture={currentProfile?.profilePicture}
                 alt={`${currentProfile?.name}'s profile`}
               >
@@ -59,7 +59,7 @@ const UserProfile = () => {
                 className="edit-profile-btn"
               >
                 <FontAwesomeIcon icon={faPen} className="pen-icon" />
-                Edit Profile
+                {window.screen.width < 425 ? "Edit" : "Edit Profile"}
               </button>
             )}
           </div>

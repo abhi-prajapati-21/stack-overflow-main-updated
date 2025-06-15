@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import jwtDecode from "jwt-decode";
-
+import { jwtDecode } from "jwt-decode";
 import logo from "../../assets/logo.png";
 import "../Navbar/navbar.css";
 import searchLogo from "../../assets/search-solid.svg";
