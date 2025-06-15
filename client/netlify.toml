@@ -1,16 +1,18 @@
 [build]
   # Directory to change to before starting a build
   base = "client/"
-  
+
   # Directory that contains the deploy-ready HTML files and assets
   publish = "build/"
-  
-  # Default build command
-  command = "npm run build"
+
+  # Default build command with legacy peer deps
+  command = "npm install --legacy-peer-deps && npm run build"
 
 [build.environment]
-  # Node.js version
-  NODE_VERSION = "18"
+  # Node.js version (React 19 works better with Node 20+)
+  NODE_VERSION = "20"
+  # NPM configuration
+  NPM_FLAGS = "--legacy-peer-deps"
 
 [[redirects]]
   from = "/*"
